@@ -1,0 +1,29 @@
+This current version is ALPHA.
+
+WHAT'S WORKING:
+- Creating a client
+- Edit settings
+- Upload torrent files, select their current progress, their download speed range, their upload speed range, and selecting wheather to start them or not.
+- Displaying the client, status, progress, size, total downloaded, total uploaded, download speed and upload speed (if present), seeders and leeachers
+- DOWNLOAD a torrent and seed it WITHOUT fake-upload any data
+- Save the client and settings to a json file
+- Pickling the torrent objects so you could start\stop the client without losing any data
+
+
+WHAT'S NOT:
+- Changing the status of a torrent after adding it
+- Editing the client from the web-ui
+- Fake-upload data when seeding the torrent (it will seed 0kb the whole seeding time)
+
+
+WHAT'S NEEDED TO BE IMPROVED:
+- Cleaning up the code
+- Improving the web ui - it's very broken (for example - it does not properly display the download speed, and it does not display properly the global download speed)
+- Changing the web engine from flask's default to gunicorn
+
+WHAT'S NEEDED TO BE ADDED:
+- Console to display logs
+- The option to edit torrents (for example - change the client), edit the clients
+- The option to sort torrents in the web-ui
+- The option to gracefully stop\start all torrents
+- Multi selection for torrents
