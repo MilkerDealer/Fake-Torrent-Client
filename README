@@ -11,7 +11,7 @@ WHAT'S WORKING:
 
 
 WHAT'S NOT:
-- Changing the status of a torrent after adding it
+- Modifying a torrent after adding it
 - Editing the client from the web-ui
 - Fake-upload data when seeding the torrent (it will seed 0kb the whole seeding time)
 
@@ -23,6 +23,7 @@ WHAT'S NEEDED TO BE IMPROVED:
 
 WHAT'S NEEDED TO BE ADDED:
 - Console to display logs
+- Uploading algorithem
 - The option to edit torrents (for example - change the client), edit the clients
 - The option to sort torrents in the web-ui
 - The option to gracefully stop\start all torrents
