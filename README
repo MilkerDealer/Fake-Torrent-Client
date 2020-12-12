@@ -14,10 +14,12 @@ WHAT'S NOT:
 - Modifying a torrent after adding it
 - Editing the client from the web-ui
 - Fake-upload data when seeding the torrent (it will seed 0kb the whole seeding time)
+- Protection system against exceeding the bandwidth input from the user
 
 
 WHAT'S NEEDED TO BE IMPROVED:
-- Cleaning up the code
+- Saving the torrent objects - I didn't find an efficient way (yet) to differentiate same torrents files but with different annoucement URLs.
+- Cleaning up the code - for example, declare if a variable is in bytes, kb, mb and etc
 - Improving the web ui - it's very broken (for example - it does not properly display the download speed, and it does not display properly the global download speed)
 - Changing the web engine from flask's default to gunicorn
 
