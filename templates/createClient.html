@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>create Client</title>
+</head>
+
+<style>
+html {
+background-color:#222;
+color: #fff;
+    }
+
+table {
+    border-collapse: separate;
+    border-spacing: 20px
+    }
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   overflow: hidden;
+   width: 100%;
+   }
+
+
+  a {
+  color: #99ccff;
+  }
+</style>
+<body>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class=flashes style="color: red; font-size: 24px">
+    {% for message in messages %}
+        <li>{{ message | safe }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+
+<form method="POST" action="" enctype="multipart/form-data">
+
+    <p>Choose client nickname (optional, program will use peerID to display the torrent if no nickname is supplied)</p>
+  <input type="text" name="nickname" id="nickname">
+
+
+  <p>Select client: </p>
+  <select name="client" id="client">
+    {% for torrentClient in clients %}
+      <option value="{{ torrentClient }}">{{ torrentClient['Name']}}</option>
+    {% endfor %}
+
+  </select>
+
+  <p>PEER ID:</p>
+  <input type="text" name="peerID" id="peerID" value={{ randID }}>
+  <p style="font-size:14px">NOTE: Please don't touch it, unless you want to have two servers running under the 'same' torrent client</p>
+
+  <p>Client port:</p>
+  <input type="text" name="clientPort" id="clientPort" value={{ port }}>
+
+
+  <p><input type="submit" value="Submit"></p>
+
+</form>
+
+<div class="footer">
+    <p style="text-align:left" ><a href={{url_for("index")}}> Homepage </a> </p>
+</div>
+</body>
+</html>

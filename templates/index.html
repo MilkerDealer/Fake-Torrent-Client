@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TorrentSeed Index</title>
+</head>
+
+<style>
+html {
+background-color:#222;
+color: #fff;
+    }
+
+table {
+    border-collapse: separate;
+    border-spacing: 20px
+    }
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   overflow: hidden;
+   width: 100%;
+   }
+
+
+  a {
+  color: #99ccff;
+  }
+</style>
+<body>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class=flashes style="color: red; font-size: 24px">
+    {% for message in messages %}
+        <li>{{ message | safe }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+
+<table>
+    <tr style="font-weight: bold">
+        <td>Filename</td>
+        <td>Client</td>
+        <td>Status</td>
+        <td>Progress</td>
+        <td>Size</td>
+        <td>Downloaded</td>
+        <td>Uploaded</td>
+        <td>DL Speed</td>
+        <td>UL Speed</td>
+        <td>Seeders</td>
+        <td>Leechers</td>
+    </tr>
+
+    {% for torrentItem in torrentItems %}
+    <tr>
+        <td><a href="Texting">{{torrentItem['Filename']}}</a></td>
+        <td>{{torrentItem['Client']}}</td>
+        <td>{{torrentItem['Status']}}</td>
+        <td>{{torrentItem['Progress']}}</td>
+        <td>{{torrentItem['Size']}}</td>
+        <td>{{torrentItem['Downloaded']}}</td>
+        <td>{{torrentItem['Uploaded']}}</td>
+        <td>{{torrentItem['DL_speed']}}</td>
+        <td>{{torrentItem['UL_speed']}}</td>
+        <td>{{torrentItem['Seeders']}}</td>
+        <td>{{torrentItem['Leechers']}}</td>
+    </tr>
+    {% endfor %}
+
+
+</table>
+<div class="footer">
+    <p style="text-align:left" >Total Active: <b>{{totalActive}}</b> | Download speed (KB/s): <b>{{downloadspeed}}</b> | Click on "Filename" to get options | <a href={{url_for('upload_files')}}>Upload files</a> | <a href="{{url_for('create_client')}}">Create Client</a> | <a href="{{url_for('create_client')}}">Edit Clients</a> | <a href="{{url_for('general_settings')}}">General settings</a></p>
+</div>
+
+</body>
+</html>

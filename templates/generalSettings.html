@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>general Settings</title>
+</head>
+
+
+<style>
+html {
+background-color:#222;
+color: #fff;
+    }
+
+table {
+    border-collapse: separate;
+    border-spacing: 20px
+    }
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   overflow: hidden;
+   width: 100%;
+   }
+
+
+  a {
+  color: #99ccff;
+  }
+
+  .numField {
+  width:80px
+  }
+</style>
+
+
+<body>
+<form method="POST" action="" enctype="multipart/form-data">
+    <p>download bandwith in mega BITS:</p>
+    <input type="number" id="bandwidthDownload" name="bandwidthDownload" value= {{ settings['bandwidthDownload'] }}>
+
+    <p>upload bandwith in mega BITS:</p>
+    <input type="number" id="bandwidthUpload" name="bandwidthUpload" value= {{ settings['bandwidthUpload'] }}>
+
+    <p>Default port for creating clients:</p>
+    <input type="number" id="defaultPort" name="defaultPort" value= {{ settings['defaultPort'] }}>
+      <p><input type="submit" value="Submit"></p>
+
+</form>
+
+<div class="footer">
+    <p style="text-align:left" ><a href={{url_for("index")}}> Homepage </a> </p>
+</div>
+
+
+</body>
+</html>

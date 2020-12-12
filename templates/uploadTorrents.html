@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+  <title>Files Upload</title>
+</head>
+
+<style>
+html {
+background-color:#222;
+color: #fff;
+    }
+
+table {
+    border-collapse: separate;
+    border-spacing: 20px
+    }
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   overflow: hidden;
+   width: 100%;
+   }
+
+
+  a {
+  color: #99ccff;
+  }
+
+  .numField {
+  width:80px
+  }
+</style>
+
+
+<body>
+<h1>File Upload</h1>
+<form method="POST" action="" enctype="multipart/form-data">
+  <p><input type="file" name="file" multiple accept=".torrent"></p>
+
+  <p>Select client: </p>
+
+  {% for torrentClient in torrentClients %}
+  {% if torrentClients.index(torrentClient) == 0 %}
+  <input type="radio" id={{ torrentClient.__str__() }} name= "torrentClient" value="{{ torrentClient.dict() }}" checked="checked">
+
+  {% else %}
+    <input type="radio" id={{ torrentClient.__str__() }} name= "torrentClient" value="{{ torrentClient.dict() }}">
+
+  {% endif %}
+
+  <label for={{ torrentClient.__str__() }}>{{ torrentClient.Clientname }}</label><br>
+  {% endfor %}
+
+
+  <br>
+
+<label>Start torrents when adding:</label>
+
+  <input type="radio"
+         name="yes_no"
+         value="True"
+         checked>Yes</input>
+
+  <input type="radio"
+         name="yes_no"
+         value="False">No</input>
+
+    <p>Progress:</p>
+    <input type="number" name="progress" id="progress" placeholder="in %" class="numField" value="100" step="0.01" required="required">
+
+
+  <p>Download speed:</p>
+  <input type="number" name="downloadMin" id="downloadMin" placeholder="minimum" class="numField" required="required" value="1">
+
+    <input type="number" name="downloadMax" id="downloadMax" placeholder="maximum"class="numField" required="required" value="50">
+  <select name="downloadType" id="downloadType">
+    <option value="B">B/s</option>
+    <option value="KB" selected="selected">KB/s</option>
+    <option value="MB">MB/s</option>
+  </select>
+
+
+  <p>Upload speed: </p>
+  <input type="number" name="uploadMin" id="uploadMin" placeholder="minimum" class="numField" required="required" value="0">
+
+  <input type="number" name="uploadMax" id="uploadMax" placeholder="maximum" class="numField" required="required" value="10">
+  <select name="uploadType" id="uploadType">
+    <option value="B" selected="selected">B/s</option>
+    <option value="KB">KB/s</option>
+    <option value="MB">MB/s</option>
+  </select>
+  <p><input type="submit" value="Submit"></p>
+
+</form>
+<div class="footer">
+    <p style="text-align:left" ><a href={{url_for("index")}}> Homepage </a> </p>
+</div>
+</body>
+</html>
