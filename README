@@ -15,6 +15,7 @@ WHAT'S NOT:
 - Editing the client from the web-ui
 - Fake-upload data when seeding the torrent (it will seed 0kb the whole seeding time)
 - Protection system against exceeding the bandwidth input from the user
+- Some trackers (so far I have witnssed it happening only on torrentleech) ignore torrents seeded from this app
 
 
 WHAT'S NEEDED TO BE IMPROVED:
