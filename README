@@ -31,3 +31,4 @@ WHAT'S NEEDED TO BE ADDED:
 - The option to sort torrents in the web-ui
 - The option to gracefully stop\start all torrents
 - Multi selection for torrents
+- Stop seeding after a certain time
