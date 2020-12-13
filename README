@@ -23,6 +23,7 @@ WHAT'S NEEDED TO BE IMPROVED:
 - Cleaning up the code - for example, declare if a variable is in bytes, kb, mb and etc
 - Improving the web ui - it's very broken (for example - it does not properly display the download speed, and it does not display properly the global download speed)
 - Changing the web engine from flask's default to gunicorn
+- Pickling can rarely corrupt
 
 WHAT'S NEEDED TO BE ADDED:
 - Console to display logs
@@ -31,4 +32,7 @@ WHAT'S NEEDED TO BE ADDED:
 - The option to sort torrents in the web-ui
 - The option to gracefully stop\start all torrents
 - Multi selection for torrents
-- Stop seeding after a certain time
+- Stop seed-upload after a certain time
+- Divide bandwidth by clients (each client will have its own bandwidth limit)
+- Display bandwidth used by client 
+- Implement a safe way to pickle files (first pickle as temp file, and if pickling is successful - rename the pickle file to the peremant file)
